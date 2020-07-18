@@ -97,6 +97,7 @@ class Indicator():
         x=os.system(CURRPATH+"/start-win10.sh")
         if x == 256:
             os.system(CURRPATH+"/forcestop-win10.sh")   
+        time.sleep(5)
         os.system(CURRPATH+"/focus.sh")   
     
     def focusritewin10(self, source):
