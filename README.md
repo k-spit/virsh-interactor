@@ -3,20 +3,21 @@ USB Focusrite
 
 # Usage:
 Add the following command to Startup Applications (Ubuntu):  
-`python /path/to/script/attach-detach-tray-service.py`
+`python /path/to/script/virsh-interactor.py`
 
 Now with a right-click on the icon choose between:  
-* Attach Focusrite (attaches the interface to the vm)
-* Detach Focusrite (detaches the interface from the vm)
-* Quit (shutdown the application)
+* Toggle domain (win10) - this will start/stop the virsh domain
+* Toggle Focusrite - this will attach/detach Focusrite device to/from domain
+* Toggle Medusa - this will attach/detach Speedlink Medusa Headset device to/from domain
+* Quit - this will shutdown the application
 
 # How it works
-## [attach-detach-tray.py](attach-detach-tray.py):
+## [virsh-interactor.py](virsh-interactor.py):
 ### init method:
 Define `appindicator` with svg icon.  
 
 ```python
-self.indicator = appindicator.Indicator.new(APPINDICATOR_ID, CURRPATH+"/detached.svg", appindicator.IndicatorCategory.SYSTEM_SERVICES)
+self.indicator = appindicator.Indicator.new(APPINDICATOR_ID, CURRPATH+"/windows-logo.svg", appindicator.IndicatorCategory.SYSTEM_SERVICES)
 ```
 Define Thread and daemonize it to make the indicator stopable.
 
@@ -73,5 +74,5 @@ else
 fi
 ```
 
-If the domain is not running `focusrite-status.sh` exits with `exit 2` (x == 512 in `attach-detach-tray.py`). 
-If the device is already attached, `focusrite-status.sh` exits with `exit 1` (x == 256 in `attach-detach-tray.py`). 
+If the domain is not running `focusrite-status.sh` exits with `exit 2` (x == 512 in `virsh-interactor.py`). 
+If the device is already attached, `focusrite-status.sh` exits with `exit 1` (x == 256 in `virsh-interactor.py`). 
