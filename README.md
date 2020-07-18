@@ -1,4 +1,4 @@
-USB Focusrite
+virsh-interactor
 ===
 
 # Usage:
