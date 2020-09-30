@@ -66,11 +66,8 @@ class Indicator():
         menu = gtk.Menu()
 
         item_domain_toggle.connect('activate', self.startwin10)
-
         item_focusrite_toggle.connect('activate', self.focusritewin10)
-
         item_medusa_toggle.connect('activate', self.speedlinkmedusawin10)
-
         item_quit = gtk.MenuItem('quit')
         item_quit.connect('activate', self.quit)
 
@@ -89,9 +86,7 @@ class Indicator():
             check_medusa_status()
 
             time.sleep(1)
-            t += 1
-            
-    
+            t += 1    
 
     def startwin10(self, source):    
         x=os.system(CURRPATH+"/start-win10.sh")
